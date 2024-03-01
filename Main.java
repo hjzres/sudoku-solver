@@ -31,11 +31,15 @@ public class Main {
         sc.close();
     }
 
-    private boolean CheckNumber(int num){
+    private boolean CheckNumber(int num, int section){
+        int[] rowIndex = RowNums(num);
+        int[] columnIndex = ColumnNums(num);
+        int[] sectionRow = SectionRow(section);
+        int[] sectionColumn = SectionColumn(section);
         return false;
     }
 
-    private int[] RowIndex(int num){
+    private int[] RowNums(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
@@ -51,7 +55,7 @@ public class Main {
         return value;
     }
 
-    private int[] ColumnIndex(int num){
+    private int[] ColumnNums(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
@@ -67,7 +71,16 @@ public class Main {
         return value;
     }
 
-    private int[] SectionIndex(int num){
+    private int[] SectionRow(int num){
+        return switch(num){
+            case 0, 3, 6 -> new int[]{0, 3, 6};
+            case 1, 4, 7 -> new int[]{1, 4, 7};
+            case 2, 5, 8 -> new int[]{2, 5, 8};
+            default -> new int[0];
+        };
+    }
+
+    private int[] SectionColumn(int num){
         return switch(num){
             case 0, 1, 2 -> new int[]{0, 1, 2};
             case 3, 4, 5 -> new int[]{3, 4, 5};
