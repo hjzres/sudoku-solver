@@ -6,10 +6,9 @@ public class Main {
     int squares;
     int squaresPerRow;
     public Main(){
-
-
         System.out.print("Enter how many squares are there in a section: ");
         squares = sc.nextInt();
+
         squaresPerRow = (int) Math.sqrt(squares);
 
         int[][] layout = new int[squares][sections];
@@ -32,7 +31,11 @@ public class Main {
         sc.close();
     }
 
-    private int[] CheckRow(int num){
+    private boolean CheckNumber(int num){
+        return false;
+    }
+
+    private int[] RowIndex(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
@@ -48,7 +51,7 @@ public class Main {
         return value;
     }
 
-    private int[] CheckColumn(int num){
+    private int[] ColumnIndex(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
@@ -62,6 +65,15 @@ public class Main {
             temp++;
         }
         return value;
+    }
+
+    private int[] SectionIndex(int num){
+        return switch(num){
+            case 0, 1, 2 -> new int[]{0, 1, 2};
+            case 3, 4, 5 -> new int[]{3, 4, 5};
+            case 6, 7, 8 -> new int[]{6, 7, 8};
+            default -> new int[0];
+        };
     }
 
     public static void main(String[] args){
