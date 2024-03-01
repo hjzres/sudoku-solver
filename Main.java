@@ -1,12 +1,17 @@
 import java.util.Scanner;
 
 public class Main {
+    int sections = 9;
+    Scanner sc = new Scanner(System.in);
+    int squares;
+    int squaresPerRow;
     public Main(){
-        Scanner sc = new Scanner(System.in);
+
 
         System.out.print("Enter how many squares are there in a section: ");
-        int squares = sc.nextInt();
-        int sections = 9;
+        squares = sc.nextInt();
+        squaresPerRow = (int) Math.sqrt(squares);
+
         int[][] layout = new int[squares][sections];
 
         for(int i = 0; i < sections; i++){
@@ -25,6 +30,33 @@ public class Main {
         }
 
         sc.close();
+    }
+
+    private void checkSection(int[][] layout, int section){
+        int[][] possibleNumbers = new int[squares][squares];
+        for(int i = 0; i < sections; i++){
+            for(int j = 0; j < squares; j++){
+                for(int k = 0; k < squares; k++){
+
+                }
+            }
+        }
+    }
+
+    private int[] checkNumbers(int num){
+        int[] value = new int[(int) Math.sqrt(squares)];
+        int temp = num;
+        while(true){
+            if(temp - squaresPerRow < 0){
+                break;
+            }
+            temp -= squaresPerRow;
+        }
+        for(int i = 0; i < squaresPerRow; i++){
+            value[i] = temp;
+            temp += squaresPerRow;
+        }
+        return value;
     }
 
     public static void main(String[] args){
