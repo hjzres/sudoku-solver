@@ -32,7 +32,7 @@ public class Main {
         sc.close();
     }
 
-    private int[] CheckPlace(int num){
+    private int[] CheckRow(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
@@ -44,6 +44,22 @@ public class Main {
         for(int i = 0; i < squaresPerRow; i++){
             value[i] = temp;
             temp += squaresPerRow;
+        }
+        return value;
+    }
+
+    private int[] CheckColumn(int num){
+        int[] value = new int[(int) Math.sqrt(squares)];
+        int temp = num;
+        while(true){
+            if(temp % squaresPerRow == 0){
+                break;
+            }
+            temp--;
+        }
+        for(int i = 0; i < squaresPerRow; i++){
+            value[i] = temp;
+            temp++;
         }
         return value;
     }
