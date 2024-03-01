@@ -32,18 +32,7 @@ public class Main {
         sc.close();
     }
 
-    private void checkSection(int[][] layout, int section){
-        int[][] possibleNumbers = new int[squares][squares];
-        for(int i = 0; i < sections; i++){
-            for(int j = 0; j < squares; j++){
-                for(int k = 0; k < squares; k++){
-
-                }
-            }
-        }
-    }
-
-    private int[] checkNumbers(int num){
+    private int[] CheckPlace(int num){
         int[] value = new int[(int) Math.sqrt(squares)];
         int temp = num;
         while(true){
